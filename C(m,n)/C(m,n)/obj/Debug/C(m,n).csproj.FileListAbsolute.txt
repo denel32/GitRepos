@@ -1,0 +1,6 @@
+C:\Users\Denel\source\repos\C(m,n)\C(m,n)\bin\Debug\C(m,n).exe.config
+C:\Users\Denel\source\repos\C(m,n)\C(m,n)\bin\Debug\C(m,n).exe
+C:\Users\Denel\source\repos\C(m,n)\C(m,n)\bin\Debug\C(m,n).pdb
+C:\Users\Denel\source\repos\C(m,n)\C(m,n)\obj\Debug\C(m,n).csprojAssemblyReference.cache
+C:\Users\Denel\source\repos\C(m,n)\C(m,n)\obj\Debug\C(m,n).exe
+C:\Users\Denel\source\repos\C(m,n)\C(m,n)\obj\Debug\C(m,n).pdb

@@ -1,0 +1,6 @@
+C:\Users\Denel\source\repos\2arrays\2arrays\bin\Debug\2arrays.exe.config
+C:\Users\Denel\source\repos\2arrays\2arrays\bin\Debug\2arrays.exe
+C:\Users\Denel\source\repos\2arrays\2arrays\bin\Debug\2arrays.pdb
+C:\Users\Denel\source\repos\2arrays\2arrays\obj\Debug\2arrays.csprojAssemblyReference.cache
+C:\Users\Denel\source\repos\2arrays\2arrays\obj\Debug\2arrays.exe
+C:\Users\Denel\source\repos\2arrays\2arrays\obj\Debug\2arrays.pdb

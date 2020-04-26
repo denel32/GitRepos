@@ -1,0 +1,6 @@
+C:\Users\Denel\source\repos\laba2(2sem)\laba2(2sem)\bin\Debug\laba2(2sem).exe.config
+C:\Users\Denel\source\repos\laba2(2sem)\laba2(2sem)\bin\Debug\laba2(2sem).exe
+C:\Users\Denel\source\repos\laba2(2sem)\laba2(2sem)\bin\Debug\laba2(2sem).pdb
+C:\Users\Denel\source\repos\laba2(2sem)\laba2(2sem)\obj\Debug\laba2(2sem).csprojAssemblyReference.cache
+C:\Users\Denel\source\repos\laba2(2sem)\laba2(2sem)\obj\Debug\laba2(2sem).exe
+C:\Users\Denel\source\repos\laba2(2sem)\laba2(2sem)\obj\Debug\laba2(2sem).pdb

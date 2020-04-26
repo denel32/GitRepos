@@ -1,0 +1,6 @@
+C:\Users\Denel\source\repos\Shella\Shella\bin\Debug\Shella.exe.config
+C:\Users\Denel\source\repos\Shella\Shella\bin\Debug\Shella.exe
+C:\Users\Denel\source\repos\Shella\Shella\bin\Debug\Shella.pdb
+C:\Users\Denel\source\repos\Shella\Shella\obj\Debug\Shella.csprojAssemblyReference.cache
+C:\Users\Denel\source\repos\Shella\Shella\obj\Debug\Shella.exe
+C:\Users\Denel\source\repos\Shella\Shella\obj\Debug\Shella.pdb

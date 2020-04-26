@@ -1,0 +1,6 @@
+C:\Users\Denel\source\repos\Qsort\Qsort\bin\Debug\Qsort.exe.config
+C:\Users\Denel\source\repos\Qsort\Qsort\bin\Debug\Qsort.exe
+C:\Users\Denel\source\repos\Qsort\Qsort\bin\Debug\Qsort.pdb
+C:\Users\Denel\source\repos\Qsort\Qsort\obj\Debug\Qsort.csprojAssemblyReference.cache
+C:\Users\Denel\source\repos\Qsort\Qsort\obj\Debug\Qsort.exe
+C:\Users\Denel\source\repos\Qsort\Qsort\obj\Debug\Qsort.pdb

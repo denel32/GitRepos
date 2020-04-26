@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bininsert", "Bininsert\Bininsert.csproj", "{C0BC5BFB-2900-451A-85E1-5051BDDBDE66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0BC5BFB-2900-451A-85E1-5051BDDBDE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BC5BFB-2900-451A-85E1-5051BDDBDE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BC5BFB-2900-451A-85E1-5051BDDBDE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BC5BFB-2900-451A-85E1-5051BDDBDE66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D145777-3FB2-495C-910B-0518F2467806}
+	EndGlobalSection
+EndGlobal

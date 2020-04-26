@@ -1,0 +1,6 @@
+C:\Users\Denel\source\repos\Buble\Buble\bin\Debug\Buble.exe.config
+C:\Users\Denel\source\repos\Buble\Buble\bin\Debug\Buble.exe
+C:\Users\Denel\source\repos\Buble\Buble\bin\Debug\Buble.pdb
+C:\Users\Denel\source\repos\Buble\Buble\obj\Debug\Buble.csprojAssemblyReference.cache
+C:\Users\Denel\source\repos\Buble\Buble\obj\Debug\Buble.exe
+C:\Users\Denel\source\repos\Buble\Buble\obj\Debug\Buble.pdb

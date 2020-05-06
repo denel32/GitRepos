@@ -1,6 +1,0 @@
-C:\Users\Denel\source\repos\Shaker\Shaker\bin\Debug\Shaker.exe.config
-C:\Users\Denel\source\repos\Shaker\Shaker\bin\Debug\Shaker.exe
-C:\Users\Denel\source\repos\Shaker\Shaker\bin\Debug\Shaker.pdb
-C:\Users\Denel\source\repos\Shaker\Shaker\obj\Debug\Shaker.csprojAssemblyReference.cache
-C:\Users\Denel\source\repos\Shaker\Shaker\obj\Debug\Shaker.exe
-C:\Users\Denel\source\repos\Shaker\Shaker\obj\Debug\Shaker.pdb

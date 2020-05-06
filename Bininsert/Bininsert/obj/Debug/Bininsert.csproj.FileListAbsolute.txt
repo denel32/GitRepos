@@ -1,6 +1,0 @@
-C:\Users\Denel\source\repos\Bininsert\Bininsert\bin\Debug\Bininsert.exe.config
-C:\Users\Denel\source\repos\Bininsert\Bininsert\bin\Debug\Bininsert.exe
-C:\Users\Denel\source\repos\Bininsert\Bininsert\bin\Debug\Bininsert.pdb
-C:\Users\Denel\source\repos\Bininsert\Bininsert\obj\Debug\Bininsert.csprojAssemblyReference.cache
-C:\Users\Denel\source\repos\Bininsert\Bininsert\obj\Debug\Bininsert.exe
-C:\Users\Denel\source\repos\Bininsert\Bininsert\obj\Debug\Bininsert.pdb

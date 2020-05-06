@@ -1,6 +1,0 @@
-C:\Users\Denel\source\repos\shablon\shablon\bin\Debug\shablon.exe.config
-C:\Users\Denel\source\repos\shablon\shablon\bin\Debug\shablon.exe
-C:\Users\Denel\source\repos\shablon\shablon\bin\Debug\shablon.pdb
-C:\Users\Denel\source\repos\shablon\shablon\obj\Debug\shablon.csprojAssemblyReference.cache
-C:\Users\Denel\source\repos\shablon\shablon\obj\Debug\shablon.exe
-C:\Users\Denel\source\repos\shablon\shablon\obj\Debug\shablon.pdb

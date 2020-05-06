@@ -1,6 +1,0 @@
-C:\Users\Denel\source\repos\gavnokod\gavnokod\bin\Debug\gavnokod.exe.config
-C:\Users\Denel\source\repos\gavnokod\gavnokod\bin\Debug\gavnokod.exe
-C:\Users\Denel\source\repos\gavnokod\gavnokod\bin\Debug\gavnokod.pdb
-C:\Users\Denel\source\repos\gavnokod\gavnokod\obj\Debug\gavnokod.csprojAssemblyReference.cache
-C:\Users\Denel\source\repos\gavnokod\gavnokod\obj\Debug\gavnokod.exe
-C:\Users\Denel\source\repos\gavnokod\gavnokod\obj\Debug\gavnokod.pdb

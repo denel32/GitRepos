@@ -1,9 +1,0 @@
-C:\Users\Denel\source\repos\Кросворд(курсова)\bin\Debug\Кросворд(курсова).exe.config
-C:\Users\Denel\source\repos\Кросворд(курсова)\bin\Debug\Кросворд(курсова).exe
-C:\Users\Denel\source\repos\Кросворд(курсова)\bin\Debug\Кросворд(курсова).pdb
-C:\Users\Denel\source\repos\Кросворд(курсова)\obj\Debug\Кросворд(курсова).csprojAssemblyReference.cache
-C:\Users\Denel\source\repos\Кросворд(курсова)\obj\Debug\Кросворд_курсова_.Form1.resources
-C:\Users\Denel\source\repos\Кросворд(курсова)\obj\Debug\Кросворд_курсова_.Properties.Resources.resources
-C:\Users\Denel\source\repos\Кросворд(курсова)\obj\Debug\Кросворд(курсова).csproj.GenerateResource.cache
-C:\Users\Denel\source\repos\Кросворд(курсова)\obj\Debug\Кросворд(курсова).exe
-C:\Users\Denel\source\repos\Кросворд(курсова)\obj\Debug\Кросворд(курсова).pdb

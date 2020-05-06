@@ -1,6 +1,0 @@
-C:\Users\Denel\source\repos\ViborSort\ViborSort\obj\Debug\ViborSort.csprojAssemblyReference.cache
-C:\Users\Denel\source\repos\ViborSort\ViborSort\bin\Debug\ViborSort.exe.config
-C:\Users\Denel\source\repos\ViborSort\ViborSort\bin\Debug\ViborSort.exe
-C:\Users\Denel\source\repos\ViborSort\ViborSort\bin\Debug\ViborSort.pdb
-C:\Users\Denel\source\repos\ViborSort\ViborSort\obj\Debug\ViborSort.exe
-C:\Users\Denel\source\repos\ViborSort\ViborSort\obj\Debug\ViborSort.pdb

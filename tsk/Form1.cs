@@ -14,7 +14,7 @@ namespace tsk
         public List<string> true_answers = new List<string>();
         public List<int> usedwords = new List<int>();
         public List<List<TextBox>> list_of_Textboxes = new List<List<TextBox>>();
-        public static int CheckLocation(ref List<List<TextBox>> list, Point pos, char werb, List<TextBox> werbs)
+        public static int CheckLocation(ref List<List<TextBox>> list, Point pos, char werb,ref List<TextBox> werbs)
         {
             for (int k = 0; k < list.Count; k++)
             {
@@ -44,12 +44,9 @@ namespace tsk
             {
                 args.Graphics.FillRectangle(Brushes.Black, 150, 150, 500, 500);
             };
-
             var rand = new Random();
-
             for (int j = 0; j < 10; j++)
             {
-
             restart:
                 var randword = rand.Next(1, 41);//  [1;41)
 
@@ -57,13 +54,10 @@ namespace tsk
                 {
                     if (randword == i)
                         goto restart;
-                }
-                usedwords.Add(randword);
+                }                
 
                 string query = "SELECT werb4 FROM Words WHERE num=" + randword;
                 OleDbCommand command = new OleDbCommand(query, myConnection);
-
-
                 var check = rand.Next(2);//  [0;2)
                 List<TextBox> werbs = new List<TextBox>();
                 int px = 50, py = 50;
@@ -72,6 +66,7 @@ namespace tsk
                 if (check == 1)
                 {
                     px *= rand.Next(3, 13 - command.ExecuteScalar().ToString().Length);//150*150=left top angle/600*600=buttom right angle
+                    
                     py *= rand.Next(3, 13);
                 }
                 else
@@ -85,7 +80,7 @@ namespace tsk
                 {
                     pos = new Point(px, py);
 
-                    switch (CheckLocation(ref list_of_Textboxes, pos, command.ExecuteScalar().ToString()[i], werbs))
+                    switch (CheckLocation(ref list_of_Textboxes, pos, command.ExecuteScalar().ToString()[i], ref werbs))
                     {
                         case 1:
 
@@ -96,6 +91,8 @@ namespace tsk
                             break;
 
                         case 0:
+
+
                             werbs.Add(new TextBox());
                             werbs[i].Name = "w" + j.ToString() + "k" + i.ToString();
                             werbs[i].Location = new Point(px, py);
@@ -121,6 +118,7 @@ namespace tsk
                 foreach (TextBox o in werbs)
                     this.Controls.Add(o);
 
+                usedwords.Add(randword);
                 list_of_Textboxes.Add(werbs);
                 true_answers.Add(command.ExecuteScalar().ToString());
 
@@ -128,6 +126,8 @@ namespace tsk
             }
             //textBox1.Text = String.Concat(list_of_Textboxes[0][0].Text, "  ", list_of_Textboxes[3][0].Text);
         }
+
+
     }
 }
 

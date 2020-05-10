@@ -7,3 +7,12 @@ C:\Users\Denel\source\repos\tsk\obj\Debug\tsk.Properties.Resources.resources
 C:\Users\Denel\source\repos\tsk\obj\Debug\tsk.csproj.GenerateResource.cache
 C:\Users\Denel\source\repos\tsk\obj\Debug\tsk.exe
 C:\Users\Denel\source\repos\tsk\obj\Debug\tsk.pdb
+C:\Users\Denel\Desktop\GitRepos\tsk\bin\Debug\tsk.exe.config
+C:\Users\Denel\Desktop\GitRepos\tsk\bin\Debug\tsk.exe
+C:\Users\Denel\Desktop\GitRepos\tsk\bin\Debug\tsk.pdb
+C:\Users\Denel\Desktop\GitRepos\tsk\obj\Debug\tsk.csprojAssemblyReference.cache
+C:\Users\Denel\Desktop\GitRepos\tsk\obj\Debug\tsk.Form1.resources
+C:\Users\Denel\Desktop\GitRepos\tsk\obj\Debug\tsk.Properties.Resources.resources
+C:\Users\Denel\Desktop\GitRepos\tsk\obj\Debug\tsk.csproj.GenerateResource.cache
+C:\Users\Denel\Desktop\GitRepos\tsk\obj\Debug\tsk.exe
+C:\Users\Denel\Desktop\GitRepos\tsk\obj\Debug\tsk.pdb

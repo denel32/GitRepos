@@ -20,6 +20,12 @@ namespace tsk
         public Button diff1 = new Button();
         public Button diff2 = new Button();
         public Button diff3 = new Button();
+
+        public int check = 1;
+        public int limit = 0;
+        public List<TextBox> list_of_used_points = new List<TextBox>();
+
+        public Label lo = new Label();
         void Buttonsdestroy()
         {
             diff1.Dispose();
@@ -55,8 +61,9 @@ namespace tsk
             int verb5 = 2;
             int verb4 = 2;
             Buttonsdestroy();
-            Main(verb8, verb7, verb6, verb5, verb4);
             diffchoosepanel.Dispose();
+            Main(verb8, verb7, verb6, verb5, verb4);
+
         }
 
         private void diff2_click(object sender, EventArgs e)
@@ -67,20 +74,22 @@ namespace tsk
             int verb5 = 3;
             int verb4 = 3;
             Buttonsdestroy();
-            Main(verb8, verb7, verb6, verb5, verb4);
             diffchoosepanel.Dispose();
+            Main(verb8, verb7, verb6, verb5, verb4);
+
         }
 
         private void diff1_click(object sender, EventArgs e)
         {
-            int verb8 = 2;//2,3,0,4,6
-            int verb7 = 3;
-            int verb6 = 1;
-            int verb5 = 4;
-            int verb4 = 6;
+            int verb8 = 1;//2,3,0,4,6
+            int verb7 = 2;
+            int verb6 = 3;
+            int verb5 = 3;
+            int verb4 = 4;
             Buttonsdestroy();
-            Main(verb8, verb7, verb6, verb5, verb4);
             diffchoosepanel.Dispose();
+            Main(verb8, verb7, verb6, verb5, verb4);
+
         }
         private void startpanel_Click(object sender, EventArgs e)
         {
@@ -99,6 +108,10 @@ namespace tsk
         public Form1()
         {
             InitializeComponent();
+
+            lo.Location = new Point(100, 100);
+            lo.Size = new Size(200, 50);
+            Controls.Add(lo);
 
             startpanel.Location = new Point(0, 0);
             startpanel.Size = new Size(950, 950);
@@ -182,13 +195,13 @@ namespace tsk
             crosswordpanel.Location = new Point(0, 0);
             crosswordpanel.Size = new Size(950, 950);
             //Controls.Add(crosswordpanel);
-            int rangex = 2;//*50-in points
-            int rangey = 16;//*50-in points
+            int rangex = 3;//*50-in points
+            int rangey = 13;//*50-in points
             myConnection = new OleDbConnection(connectString);
             myConnection.Open();
             Paint += (sender, args) =>
             {
-                args.Graphics.FillRectangle(Brushes.Black, 100, 100, 750, 750);
+                args.Graphics.FillRectangle(Brushes.Black, rangex * 50, rangex * 50, rangey * 50, rangey * 50);
             };
             var rand = new Random();
 
@@ -201,6 +214,7 @@ namespace tsk
             Word(verb5, 5);
             usedwords.Clear();
             Word(verb4, 4);
+            lo.Text = "ГОТОВО!";
             //LoadScreen();
             void Word(int num, int lg)
             {
@@ -208,7 +222,10 @@ namespace tsk
                 for (int j = 0; j < num; j++)
                 {
                 restart:
-                    var randword = rand.Next(1, 41);//  [1;41)
+                    list_of_used_points.Clear();
+                    check *= -1;
+
+                    var randword = rand.Next(1, 79);
 
                     foreach (int i in usedwords)
                     {
@@ -218,13 +235,12 @@ namespace tsk
 
                     string query = "SELECT verb" + lg + " FROM Words WHERE num=" + randword;
                     OleDbCommand command = new OleDbCommand(query, myConnection);
-                    var check = rand.Next(2);//  [0;2)
+                    lo.Text = "Слoво в обробці:   " + command.ExecuteScalar().ToString() + "\nСтворено слів:  " + list_of_Textboxes.Count;
+
+                Another_position:
+                    bool cross = false;
                     List<TextBox> verbs = new List<TextBox>();
                     int px, py;
-                    Point pos = new Point();
-
-
-
                     if (check == 1)
                     {
 
@@ -232,148 +248,225 @@ namespace tsk
 
                     back_py1:
                         py = rand.Next(rangex, rangey + 1);
-                        if (py % 2 == 0)
-                            goto back_py1;
+                        //if (py % 2 == 0)
+                        //    goto back_py1;    //это решетка
                     }
                     else
                     {
                     back_px2:
                         px = rand.Next(rangex, rangey + 1);
-                        if (px % 2 == 0)
-                            goto back_px2;
+                        //if (px % 2 == 0)
+                        //    goto back_px2;
 
                         py = rand.Next(rangex, rangey + 1 - command.ExecuteScalar().ToString().Length);
-
                     }
-                    px *= 50; py *= 50;
-                    bool doublecross = false;
-                    for (int i = 0; i < command.ExecuteScalar().ToString().Length; i++)
+                    TextBox pos = new TextBox();
+                    pos.Location = new Point(px, py);
+
+
+                    foreach (TextBox w in list_of_used_points)
                     {
-
-                        pos = new Point(px, py);
-
-                        Point pos_top = new Point(px, py - 50);
-                        Point pos_left = new Point(px - 50, py);
-                        Point pos_right = new Point(px + 50, py);
-                        Point pos_buttom = new Point(px, py + 50);
-
-                        switch (CheckLocation(ref list_of_Textboxes, pos, command.ExecuteScalar().ToString()[i], ref verbs))
+                        if (pos.Location == w.Location)
                         {
-                            case 1:
-                                if (doublecross)
-                                    goto restart;
-
-                                if (check == 1)
-                                {
-                                    px += 50;
-                                    if (i == command.ExecuteScalar().ToString().Length - 1)
-                                    {
-
-                                        if (CheckLocation(ref list_of_Textboxes, pos_right, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                            goto restart;
-                                    }
-                                    else
-                                        if (i == 0)
-                                    {
-                                        if (CheckLocation(ref list_of_Textboxes, pos_left, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                            goto restart;
-                                    }
-                                }
-                                else
-                                {
-                                    if (i == command.ExecuteScalar().ToString().Length - 1)
-                                    {
-
-                                        if (CheckLocation(ref list_of_Textboxes, pos_buttom, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                            goto restart;
-                                    }
-                                    if (i == 0)
-                                    {
-                                        if (CheckLocation(ref list_of_Textboxes, pos_top, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                            goto restart;
-                                    }
-                                    py += 50;
-                                }
-
-                                doublecross = true;
-                                break;
-
-                            case 0:
-                                doublecross = false;
-                                pos_top = new Point(px, py - 50);
-                                pos_left = new Point(px - 50, py);
-                                pos_right = new Point(px + 50, py);
-                                pos_buttom = new Point(px, py + 50);
-
-                                if (i == 0)//first verb
-                                {
-                                    if (CheckLocation(ref list_of_Textboxes, pos_top, command.ExecuteScalar().ToString()[i], ref verbs) != 0
-                                        || CheckLocation(ref list_of_Textboxes, pos_left, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                    {
-                                        goto restart;
-                                    }
-                                }
-
-                                if (check == 1)
-                                {
-                                    if (CheckLocation(ref list_of_Textboxes, pos_top, command.ExecuteScalar().ToString()[i], ref verbs) != 0 ||
-                                        CheckLocation(ref list_of_Textboxes, pos_buttom, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                        goto restart;
-
-                                    if (i == command.ExecuteScalar().ToString().Length - 1)//last verb
-                                    {
-                                        if (CheckLocation(ref list_of_Textboxes, pos_right, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                        {
-                                            goto restart;
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    if (CheckLocation(ref list_of_Textboxes, pos_left, command.ExecuteScalar().ToString()[i], ref verbs) != 0 ||
-                                        CheckLocation(ref list_of_Textboxes, pos_right, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                        goto restart;
-
-                                    if (i == command.ExecuteScalar().ToString().Length - 1)//last verb
-                                    {
-                                        if (CheckLocation(ref list_of_Textboxes, pos_buttom, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
-                                        {
-                                            goto restart;
-                                        }
-                                    }
-                                }
-                                verbs.Add(new TextBox());
-                                verbs[i].Name = "w" + j.ToString() + "k" + i.ToString();
-                                verbs[i].Location = new Point(px, py);
-                                verbs[i].Size = new Size(50, 50);
-                                verbs[i].Multiline = true;
-                                verbs[i].MaxLength = 1;
-                                verbs[i].TextAlign = HorizontalAlignment.Center;
-                                verbs[i].BorderStyle = BorderStyle.Fixed3D;
-                                verbs[i].CharacterCasing = CharacterCasing.Upper;
-                                verbs[i].Font = new Font("Times New Roman", this.Height / 30);
-                                if (check == 1)
-                                    px += 50;
-                                else
-                                    py += 50;
-
-                                //verbs[i].Text = command.ExecuteScalar().ToString()[i].ToString();
-                                break;
-
-                            default:
-                                goto restart;
+                            if (limit < 45)
+                            {
+                                limit++;
+                                goto Another_position;
+                            }
+                            goto restart;
                         }
                     }
-                    foreach (TextBox o in verbs)
+
+                    list_of_used_points.Add(pos);
+
                     {
-                        Controls.Add(o);
+
+                        px *= 50; py *= 50;
+                        bool doublecross = false;
+                        for (int i = 0; i < command.ExecuteScalar().ToString().Length; i++)
+                        {
+
+                            Point pos_top = new Point(px, py - 50);
+                            Point pos_left = new Point(px - 50, py);
+                            Point pos_right = new Point(px + 50, py);
+                            Point pos_buttom = new Point(px, py + 50);
+
+                            switch (CheckLocation(ref list_of_Textboxes, new Point(px, py), command.ExecuteScalar().ToString()[i], ref verbs))
+                            {
+                                case 1:
+                                    cross = true;
+                                    if (doublecross)
+                                        if (limit < 45)
+                                        {
+                                            limit++;
+                                            goto Another_position;
+                                        }
+                                        else
+                                            goto restart;
+
+                                    if (check == 1)
+                                    {
+                                        px += 50;
+                                        if (i == command.ExecuteScalar().ToString().Length - 1)
+                                        {
+
+                                            if (CheckLocation(ref list_of_Textboxes, pos_right, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                                if (limit < 45)
+                                                {
+                                                    limit++;
+                                                    goto Another_position;
+                                                }
+                                            goto restart;
+                                        }
+                                        else
+                                            if (i == 0)
+                                        {
+                                            if (CheckLocation(ref list_of_Textboxes, pos_left, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                                if (limit < 45)
+                                                {
+                                                    limit++;
+                                                    goto Another_position;
+                                                }
+                                            goto restart;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (i == command.ExecuteScalar().ToString().Length - 1)
+                                        {
+
+                                            if (CheckLocation(ref list_of_Textboxes, pos_buttom, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                                if (limit < 45)
+                                                {
+                                                    limit++;
+                                                    goto Another_position;
+                                                }
+                                            goto restart;
+                                        }
+                                        if (i == 0)
+                                        {
+                                            if (CheckLocation(ref list_of_Textboxes, pos_top, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                                if (limit < 45)
+                                                {
+                                                    limit++;
+                                                    goto Another_position;
+                                                }
+                                            goto restart;
+                                        }
+                                        py += 50;
+                                    }
+
+                                    doublecross = true;
+                                    break;
+
+                                case 0:
+                                    doublecross = false;
+                                    pos_top = new Point(px, py - 50);
+                                    pos_left = new Point(px - 50, py);
+                                    pos_right = new Point(px + 50, py);
+                                    pos_buttom = new Point(px, py + 50);
+
+                                    if (i == 0)//first verb
+                                    {
+                                        if (CheckLocation(ref list_of_Textboxes, pos_top, command.ExecuteScalar().ToString()[i], ref verbs) != 0
+                                            || CheckLocation(ref list_of_Textboxes, pos_left, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                        {
+                                            if (limit < 45)
+                                            {
+                                                limit++;
+                                                goto Another_position;
+                                            }
+                                            goto restart;
+                                        }
+                                    }
+
+                                    if (check == 1)
+                                    {
+                                        if (CheckLocation(ref list_of_Textboxes, pos_top, command.ExecuteScalar().ToString()[i], ref verbs) != 0 ||
+                                            CheckLocation(ref list_of_Textboxes, pos_buttom, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                            goto restart;
+
+                                        if (i == command.ExecuteScalar().ToString().Length - 1)//last verb
+                                        {
+                                            if (CheckLocation(ref list_of_Textboxes, pos_right, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                            {
+                                                if (limit < 45)
+                                                {
+                                                    limit++;
+                                                    goto Another_position;
+                                                }
+                                                goto restart;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (CheckLocation(ref list_of_Textboxes, pos_left, command.ExecuteScalar().ToString()[i], ref verbs) != 0 ||
+                                            CheckLocation(ref list_of_Textboxes, pos_right, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                            goto restart;
+
+                                        if (i == command.ExecuteScalar().ToString().Length - 1)//last verb
+                                        {
+                                            if (CheckLocation(ref list_of_Textboxes, pos_buttom, command.ExecuteScalar().ToString()[i], ref verbs) != 0)
+                                            {
+                                                if (limit < 45)
+                                                {
+                                                    limit++;
+                                                    goto Another_position;
+                                                }
+                                                goto restart;
+                                            }
+                                        }
+                                    }
+                                    verbs.Add(new TextBox());
+                                    verbs[i].Name = "w" + j.ToString() + "k" + i.ToString();
+                                    verbs[i].Location = new Point(px, py);
+                                    verbs[i].Size = new Size(50, 50);
+                                    verbs[i].Multiline = true;
+                                    verbs[i].MaxLength = 1;
+                                    verbs[i].TextAlign = HorizontalAlignment.Center;
+                                    verbs[i].BorderStyle = BorderStyle.Fixed3D;
+                                    verbs[i].CharacterCasing = CharacterCasing.Upper;
+                                    verbs[i].Font = new Font("Times New Roman", this.Height / 30);
+                                    if (check == 1)
+                                        px += 50;
+                                    else
+                                        py += 50;
+
+                                    verbs[i].Text = command.ExecuteScalar().ToString()[i].ToString();
+                                    break;
+
+                                default:
+                                    if (limit < 45)
+                                    {
+                                        limit++;
+                                        goto Another_position;
+                                    }
+                                    goto restart;
+                            }
+                        }
+
+                        if (!cross && list_of_Textboxes.Count != 0)
+                        {
+                            if (limit < 45)
+                            {
+                                limit++;
+                                goto Another_position;
+                            }
+                            goto restart;
+                        }
+
+                        foreach (TextBox o in verbs)
+                        {
+                            Controls.Add(o);
+                        }
+
+                        usedwords.Add(randword);
+                        list_of_Textboxes.Add(verbs);
+                        true_answers.Add(command.ExecuteScalar().ToString());
+
+
                     }
-
-                    usedwords.Add(randword);
-                    list_of_Textboxes.Add(verbs);
-                    true_answers.Add(command.ExecuteScalar().ToString());
-
-
                 }
             }
 

@@ -92,7 +92,7 @@ namespace tsk
         }
         private void startpanel_Click(object sender, EventArgs e)
         {
-            BackgroundImage =Image.FromFile ("WordsScreen.jpg");
+            BackgroundImage = Image.FromFile("WordsScreen.jpg");
             diffchoosepanel.Location = new Point(0, 0);
             diffchoosepanel.Size = new Size(950, 950);
             Image backfont = Image.FromFile("WordsScreen.jpg");
@@ -258,48 +258,12 @@ namespace tsk
                     OleDbCommand command = new OleDbCommand(query, myConnection);
                     lo.Text = "Слoво в обробці:   " + command.ExecuteScalar().ToString() + "\nСтворено слів:  " + list_of_Textboxes.Count + "\nНапрямок:     " + check;
 
-
-
-
-                    //if (list_of_Textboxes.Count == 0)
-                    //{
-                    //    int px1 = 4, py1 = 6;
-                    //    for (int i = 0; i < command.ExecuteScalar().ToString().Length; i++)
-                    //    {
-                    //        verbs.Add(new TextBox());
-                    //        verbs[i].Name = "w" + j.ToString() + "k" + i.ToString();
-                    //        verbs[i].Location = new Point(px1, py1);
-                    //        verbs[i].Size = new Size(50, 50);
-                    //        verbs[i].Multiline = true;
-                    //        verbs[i].MaxLength = 1;
-                    //        verbs[i].TextAlign = HorizontalAlignment.Center;
-                    //        verbs[i].BorderStyle = BorderStyle.Fixed3D;
-                    //        verbs[i].CharacterCasing = CharacterCasing.Upper;
-                    //        verbs[i].Font = new Font("Times New Roman", this.Height / 30);
-                    //        if (check == 1)
-                    //            px1 += 50;
-                    //        else
-                    //            py1 += 50;
-
-                    //        verbs[i].Text = command.ExecuteScalar().ToString()[i].ToString();
-                    //    }
-                    //    usedwords.Add(randword);
-                    //    list_of_Textboxes.Add(verbs);
-                    //    true_answers.Add(command.ExecuteScalar().ToString());
-                    //    check *= -1;
-
-                    //    foreach (TextBox o in verbs)
-                    //    {
-                    //        Controls.Add(o);
-                    //    }
-                    //}
-
                     bool done = false;
                     for (int row = range_top_left_angle; row < range_bottom_right_angle; row++)
                     {
                         for (int col = range_top_left_angle; col < range_bottom_right_angle; col++)
                         {
-                            
+
                             if (done)
                             {
                                 goto end;
@@ -308,20 +272,6 @@ namespace tsk
                             bool cross = false;
                             List<TextBox> verbs = new List<TextBox>();
                             int px = 50 * row; int py = 50 * col;
-
-
-                            //TextBox pos = new TextBox();
-                            //pos.Location = new Point(px, py);
-                            //pos.Multiline = true;
-                            //pos.Size = new Size(50, 50);
-                            //pos.BackColor = Color.Azure;
-                            //Controls.Add(pos);
-
-
-
-
-
-
 
                             bool doublecross = false;
                             for (int i = 0; i < command.ExecuteScalar().ToString().Length; i++)

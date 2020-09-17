@@ -1,0 +1,74 @@
+using System;
+
+namespace ConsoleApp4
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter x");
+            double x = double.Parse(Console.ReadLine());
+            if (x < 1 && x > 0)
+                Console.WriteLine("Ok");
+            else
+                Console.WriteLine("Error");
+
+            Console.WriteLine("Enter x");
+            x = double.Parse(Console.ReadLine());
+            if (x <= 1 && x >= -1 && x > 10)
+                Console.WriteLine("Ok");
+            else
+                Console.WriteLine("Error");
+        }
+    }
+    class Program2
+    {
+
+        static void Main2(string[] args)
+        {
+            Console.WriteLine("Enter x");
+            double x = double.Parse(Console.ReadLine());
+            Console.WriteLine((x < 1 && x > 0) ? "Ok" : "Error");
+
+            Console.WriteLine("Enter x");
+            x = double.Parse(Console.ReadLine());
+            Console.WriteLine((x > 10 && x >= -1 && x <= 1) ? "Ok" : "Error");
+
+        }
+
+    }
+    class Program3
+    {
+        static void Main3(string[] args)
+        {
+            Console.WriteLine("Enter x");
+            double x = double.Parse(Console.ReadLine());
+            bool answer = (x < 1 && x > 0) ? true : false;
+            switch (answer)
+            {
+                case true:
+                    Console.WriteLine("Ok");
+                    break;
+
+                default:
+                    Console.WriteLine("Error");
+                    break;
+            }
+            Console.WriteLine("Enter x");
+            x = double.Parse(Console.ReadLine());
+            answer = (x <= 1 && x >= -1 && x > 10) ? true : false;
+            switch (answer)
+            {
+                case true:
+                    Console.WriteLine("Ok");
+                    break;
+
+                default:
+                    Console.WriteLine("Error");
+                    break;
+            }
+        }
+
+    }
+}
